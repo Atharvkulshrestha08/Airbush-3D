@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AirBrush Studio - ML Canvas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001835",
+                        "on-error-container": "#ffa8a3",
+                        "on-surface-variant": "#adaaaa",
+                        "on-tertiary-fixed-variant": "#003971",
+                        "on-background": "#ffffff",
+                        "background": "#0e0e0e",
+                        "primary-container": "#00e3fd",
+                        "on-primary-container": "#004d57",
+                        "secondary-fixed-dim": "#f7a8ff",
+                        "primary-fixed": "#00e3fd",
+                        "tertiary-fixed": "#80b2ff",
+                        "on-primary-fixed": "#003840",
+                        "surface-container-highest": "#262626",
+                        "on-primary": "#005762",
+                        "secondary-fixed": "#fbbdff",
+                        "primary-fixed-dim": "#00d4ec",
+                        "error": "#ff716c",
+                        "inverse-primary": "#006976",
+                        "surface-container": "#1a1a1a",
+                        "primary": "#81ecff",
+                        "error-dim": "#d7383b",
+                        "on-secondary": "#3c0048",
+                        "secondary-dim": "#c500e6",
+                        "surface-container-low": "#131313",
+                        "error-container": "#9f0519",
+                        "inverse-on-surface": "#565555",
+                        "secondary": "#e966ff",
+                        "tertiary-container": "#599cf9",
+                        "surface-variant": "#262626",
+                        "surface-bright": "#2c2c2c",
+                        "tertiary": "#70aaff",
+                        "on-secondary-fixed-variant": "#8b00a3",
+                        "secondary-container": "#a100bd",
+                        "on-secondary-fixed": "#5d006e",
+                        "tertiary-dim": "#5c9ffc",
+                        "surface-dim": "#0e0e0e",
+                        "surface": "#0e0e0e",
+                        "outline": "#767575",
+                        "on-surface": "#ffffff",
+                        "on-primary-fixed-variant": "#005762",
+                        "on-tertiary-container": "#001d3f",
+                        "on-error": "#490006",
+                        "inverse-surface": "#fcf9f8",
+                        "primary-dim": "#00d4ec",
+                        "outline-variant": "#484847",
+                        "tertiary-fixed-dim": "#65a4ff",
+                        "on-secondary-container": "#fff5fa",
+                        "surface-container-high": "#20201f",
+                        "surface-tint": "#81ecff",
+                        "surface-container-lowest": "#000000",
+                        "on-tertiary": "#002a55"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-hud { backdrop-filter: blur(24px); background-color: rgba(38, 38, 38, 0.6); }
+        .ai-pulse { position: relative; }
+        .ai-pulse::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(129, 236, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="overflow-hidden h-screen select-none">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 h-16 fixed top-0 z-50 bg-[#0e0e0e] dark:bg-[#0e0e0e] bg-[#131313]">
+<div class="flex items-center gap-3">
+<span class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200 font-['Inter'] font-semibold tracking-tight">AirBrush Studio</span>
+</div>
+<div class="flex gap-4 items-center">
+<button class="text-zinc-500 hover:text-cyan-300 transition-colors duration-200 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="text-zinc-500 hover:text-cyan-300 transition-colors duration-200 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<div class="flex h-full pt-16">
+<!-- SideNavBar (Left Tool Palette) -->
+<nav class="h-screen w-20 fixed left-0 top-16 bg-[#131313] dark:bg-[#131313] bg-[#1a1a1a] flex flex-col items-center py-4 space-y-4 z-40">
+<!-- Pen (Active) -->
+<button class="bg-gradient-to-br from-cyan-400 to-cyan-600 text-black rounded-xl m-2 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit" style="font-variation-settings: 'FILL' 1;">edit</span>
+</button>
+<!-- Highlighter -->
+<button class="text-zinc-400 hover:bg-zinc-800/50 rounded-xl m-2 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined text-yellow-400" data-icon="stylus">stylus</span>
+</button>
+<!-- Brush -->
+<button class="text-zinc-400 hover:bg-zinc-800/50 rounded-xl m-2 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined text-orange-400" data-icon="brush">brush</span>
+</button>
+<!-- Eraser -->
+<button class="text-zinc-400 hover:bg-zinc-800/50 rounded-xl m-2 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="ink_eraser">ink_eraser</span>
+</button>
+<div class="flex-grow"></div>
+<!-- Clear -->
+<button class="text-zinc-400 hover:bg-zinc-800/50 rounded-xl m-2 w-12 h-12 flex items-center justify-center transition-all duration-200 active:scale-90 border border-zinc-700/30">
+<span class="material-symbols-outlined" data-icon="delete_sweep">delete_sweep</span>
+</button>
+</nav>
+<!-- Main Workspace (Center) -->
+<main class="ml-20 mr-72 flex-grow relative bg-surface p-4 flex items-center justify-center overflow-hidden">
+<div class="relative w-full h-full rounded-xl overflow-hidden bg-surface-container-low border border-primary/20 shadow-[0_0_40px_rgba(129,236,255,0.05)] ai-pulse group">
+<img alt="Professional studio environment with soft cyan neon glowing lights and digital overlay lines on a dark background" class="w-full h-full object-cover opacity-60" data-alt="high-tech digital canvas interface with soft cyan neon glow on dark charcoal background and subtle grid patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDGmR6BHdBaoQSwkBPOtQ9GY1xY7FTLoh_CSqer7cRDDn0vpL5g7rNmXpa62jLYjQQ62nyREXgWSNrol_EQRAQDr3YIsvmypwlBn5eaKPbHXTQ2fd0-6NxGKhy856T5g3sImifxywVN_IvPDooGx22fZNNHKrtjospT28gMdbUyp_RCI8Tn2HASaVZIQyQIodAH5tOJPpJNfBvi6FB8Shbgnq2CgaTYQHFYVfdIpOK99X4HbafPQNwepTPgVMHT0T8XRSa_MasAaE"/>
+<!-- Webcam/Interactive Layer Mock -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-3/4 h-3/4 border-2 border-dashed border-primary/10 rounded-xl flex items-center justify-center">
+<div class="text-surface-variant font-label text-sm uppercase tracking-widest">Active Tracking Zone</div>
+</div>
+</div>
+<!-- Status Pill -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 glass-hud px-6 py-2.5 rounded-full border border-primary/30 shadow-2xl flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#81ecff]"></span>
+<span class="font-label text-xs font-bold text-on-surface tracking-wide uppercase">4-Finger Stretch Detected</span>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Right ML Panel) -->
+<aside class="h-screen w-72 fixed right-0 top-16 bg-[#131313] dark:bg-[#131313] bg-[#1a1a1a] flex flex-col p-6 space-y-8 z-40 shadow-2xl shadow-black/50">
+<div>
+<h2 class="font-['Inter'] text-xs font-medium uppercase tracking-wider text-purple-400 mb-6">ML Controls</h2>
+<!-- Shape Mode Selector -->
+<div class="space-y-3 mb-8">
+<label class="block text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Shape Mode Selector</label>
+<div class="bg-surface-container-low rounded-xl px-4 py-3 flex items-center justify-between group cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-sm font-medium">Rectangle</span>
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary transition-colors" data-icon="category">category</span>
+</div>
+</div>
+<!-- ML Recognition Mode Toggle -->
+<div class="space-y-4">
+<label class="block text-[10px] text-zinc-500 uppercase font-bold tracking-widest">ML Recognition Mode</label>
+<div class="space-y-2">
+<div class="border-l-2 border-purple-500 bg-purple-500/10 text-purple-300 px-4 py-3 rounded-r-xl flex items-center justify-between cursor-pointer active:translate-x-1 duration-200">
+<span class="text-sm font-medium">Digit Recognition</span>
+<span class="material-symbols-outlined text-xs" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="text-zinc-500 hover:bg-white/5 px-4 py-3 rounded-xl flex items-center justify-between cursor-pointer transition-colors duration-200">
+<span class="text-sm font-medium">Gestural Control</span>
+<span class="material-symbols-outlined text-xs" data-icon="analytics">analytics</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-grow">
+<!-- ML Readout Section -->
+<div class="bg-surface-container rounded-xl p-4 border-l border-primary/20">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-tighter">ML Readout</span>
+<span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full font-bold">LIVE</span>
+</div>
+<div class="space-y-1">
+<div class="text-xl font-bold text-white tracking-tight">Digit 7 Detected</div>
+<div class="text-xs text-primary font-medium">(94.85% Acc)</div>
+</div>
+<!-- Small confidence visualizer -->
+<div class="mt-4 w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[94.85%] shadow-[0_0_8px_#81ecff]"></div>
+</div>
+</div>
+</div>
+<!-- Export Button -->
+<button class="w-full py-4 rounded-xl font-headline font-bold text-black bg-gradient-to-r from-primary to-primary-container shadow-[0_0_20px_rgba(0,227,253,0.3)] hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+                Export Image (PNG)
+            </button>
+</aside>
+</div>
+</body></html>

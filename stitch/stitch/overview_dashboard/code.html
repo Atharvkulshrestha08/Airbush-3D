@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AttendGuard Pro - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dee0ff",
+                    "tertiary": "#6c3400",
+                    "background": "#fbf8ff",
+                    "surface-dim": "#dbd9e2",
+                    "on-surface": "#1a1b22",
+                    "primary": "#24389c",
+                    "primary-fixed-dim": "#bac3ff",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#85f6e5",
+                    "inverse-primary": "#bac3ff",
+                    "surface-tint": "#4355b9",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "on-secondary-fixed": "#00201c",
+                    "secondary-fixed-dim": "#67d9c9",
+                    "inverse-on-surface": "#f2eff9",
+                    "outline": "#757684",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#007166",
+                    "on-secondary-fixed-variant": "#005048",
+                    "surface-container-low": "#f4f2fc",
+                    "on-primary-fixed-variant": "#293ca0",
+                    "surface": "#fbf8ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#cacfff",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1b22",
+                    "on-primary-fixed": "#00105c",
+                    "on-tertiary-container": "#ffc7a2",
+                    "primary-container": "#3f51b5",
+                    "inverse-surface": "#2f3037",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "secondary-fixed": "#85f6e5",
+                    "on-surface-variant": "#454652",
+                    "surface-container": "#efedf6",
+                    "surface-container-high": "#e9e7f0",
+                    "secondary": "#006a60",
+                    "outline-variant": "#c5c5d4",
+                    "surface-variant": "#e3e1ea",
+                    "tertiary-fixed": "#ffdcc6",
+                    "surface-container-highest": "#e3e1ea",
+                    "surface-bright": "#fbf8ff",
+                    "tertiary-container": "#8f4700",
+                    "on-tertiary-fixed": "#301400",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(244, 242, 252, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(197, 197, 212, 0.15);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, .brand-logo {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-72 bg-surface-container-low text-primary p-4 space-y-2 rounded-r-3xl sticky top-0 z-40 border-r border-transparent">
+<div class="px-4 py-6 mb-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<div class="text-lg font-black text-primary tracking-tight leading-tight">AttendGuard Pro</div>
+<div class="text-[10px] font-medium tracking-widest uppercase text-outline">Precision Monitoring</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Overview -->
+<a class="flex items-center gap-4 px-4 py-3 bg-surface-container-lowest text-primary rounded-xl shadow-sm transition-transform duration-200 hover:translate-x-1 ring-2 ring-primary/10" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-medium tracking-wide uppercase text-sm">Overview</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-transform duration-200 hover:translate-x-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-medium tracking-wide uppercase text-sm">Digitize Days</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-transform duration-200 hover:translate-x-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-medium tracking-wide uppercase text-sm">AI Core</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-transform duration-200 hover:translate-x-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-medium tracking-wide uppercase text-sm">ERP Bridge</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-transform duration-200 hover:translate-x-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-medium tracking-wide uppercase text-sm">History</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-transform duration-200 hover:translate-x-1 rounded-xl mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium tracking-wide uppercase text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-primary-container text-white rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Status</p>
+<p class="text-sm font-semibold">Edge Node Active</p>
+</div>
+<div class="absolute -right-4 -bottom-4 w-16 h-16 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-50 bg-surface flex justify-between items-center px-6 transition-colors duration-200">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex items-center bg-surface-container px-4 py-1.5 rounded-full w-64">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline" placeholder="Search insights..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container rounded-full transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-1"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-primary">Alex Chen</p>
+<p class="text-[10px] text-outline font-semibold uppercase">Admin</p>
+</div>
+<img alt="User profile avatar" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high" data-alt="portrait of a professional young man in casual attire looking confident with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4MkGcB2pNbyio2C5WFTxLc4lzN3Y1O7NC4Gk1l5bg13CC0fytoE0I7nnxUSZjm3vW8QLNTu6QbGg0ShEF6tzNOT7d51lE1wyyjMdc3dBWNp-pTzWUojggCpMOIj6-FH_JmCr29AZdiuHdqIKNN0JyHvGwFgUHKUvlp_v8e8vdPG59bLBh-AHhDlIuKQiMQvBM427p9wCT0st6c0wl9_j1Wpqt8Lr_w2-XJtdk1PhIv80WOo_IDt9SUsqjOS-cHRCTmU8_VtuNUYM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 md:p-8 space-y-8 overflow-y-auto">
+<!-- Hero Section -->
+<section class="relative rounded-3xl overflow-hidden min-h-[220px] flex flex-col justify-center p-8 text-primary">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed to-surface-container-low -z-10"></div>
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-primary leading-[1.1]">
+                        Welcome to AttendGuard
+                    </h1>
+<p class="text-lg text-on-surface-variant font-medium max-w-lg leading-relaxed">
+                        Track, analyze, and optimize your ERP attendance through intelligent local processing.
+                    </p>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<span class="material-symbols-outlined text-[200px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none" style="font-variation-settings: 'wght' 200;">monitoring</span>
+</div>
+</section>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Records Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 flex items-center gap-6 shadow-sm border-l-[6px] border-secondary relative overflow-hidden group">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">data_thresholding</span>
+</div>
+<div>
+<p class="text-sm font-semibold uppercase tracking-widest text-outline mb-1">Records Processed</p>
+<h3 class="text-3xl font-extrabold text-on-surface">5 Logs</h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-[100px]">database</span>
+</div>
+</div>
+<!-- Average Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 flex items-center gap-6 shadow-sm border-l-[6px] border-primary relative overflow-hidden group">
+<div class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<div>
+<p class="text-sm font-semibold uppercase tracking-widest text-outline mb-1">Average Attendance</p>
+<h3 class="text-3xl font-extrabold text-on-surface">55.0%</h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-[100px]">show_chart</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Chart Section -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-xl font-bold text-on-surface">Attendance Trajectory &amp; Pattern</h2>
+<p class="text-sm text-outline font-medium">Real-time performance analytics</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-full text-primary">WEEKLY</span>
+<span class="px-3 py-1 hover:bg-surface-container text-xs font-bold rounded-full text-outline transition-colors cursor-pointer">MONTHLY</span>
+</div>
+</div>
+<!-- Visual Mock of a Chart -->
+<div class="h-64 flex items-end gap-3 px-4 relative">
+<!-- Simulated Bar Chart Background -->
+<div class="w-full h-32 bg-secondary/5 rounded-t-lg absolute bottom-0"></div>
+<div class="flex-1 bg-secondary/20 h-[40%] rounded-t-xl relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">42%</div>
+</div>
+<div class="flex-1 bg-secondary/40 h-[60%] rounded-t-xl relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">58%</div>
+</div>
+<div class="flex-1 bg-primary/60 h-[85%] rounded-t-xl relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">82%</div>
+</div>
+<div class="flex-1 bg-secondary/30 h-[45%] rounded-t-xl relative group"></div>
+<div class="flex-1 bg-secondary/50 h-[70%] rounded-t-xl relative group"></div>
+<div class="flex-1 bg-primary h-[95%] rounded-t-xl relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">95%</div>
+</div>
+<div class="flex-1 bg-secondary/20 h-[30%] rounded-t-xl relative group"></div>
+<!-- Line Chart Overlay (SVG) -->
+<svg class="absolute bottom-0 left-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q15,60 30,40 T60,20 T100,10" fill="none" stroke="#24389c" stroke-width="2"></path>
+<circle cx="0" cy="80" fill="#24389c" r="2"></circle>
+<circle cx="30" cy="40" fill="#24389c" r="2"></circle>
+<circle cx="60" cy="20" fill="#24389c" r="2"></circle>
+<circle cx="100" cy="10" fill="#24389c" r="2"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4 px-4 text-[10px] font-bold text-outline uppercase tracking-wider">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Side Widget AI -->
+<div class="lg:col-span-1 space-y-6">
+<div class="relative p-[2px] rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-secondary to-tertiary shadow-xl">
+<div class="bg-surface-container-lowest rounded-[22px] p-6 h-full flex flex-col glass-panel">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
+</div>
+<h3 class="text-lg font-bold text-primary">AI Pattern Insights</h3>
+</div>
+<div class="space-y-4 flex-1">
+<div class="p-4 bg-surface-container-low rounded-2xl border-l-4 border-tertiary">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary">warning</span>
+<p class="text-sm text-on-surface-variant font-medium leading-relaxed italic">
+                                            "Attendance drops 100% on absent days"
+                                        </p>
+</div>
+</div>
+<div class="p-4 bg-secondary-container/20 rounded-2xl border-l-4 border-secondary">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary">lightbulb</span>
+<p class="text-sm text-on-surface-variant font-medium leading-relaxed">
+<strong>Recommendation:</strong> Clock in before 9:15 AM
+                                        </p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">Powered by Gemini</span>
+<button class="text-primary font-bold text-xs hover:underline flex items-center gap-1">
+                                    Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mini Map or Location context -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm h-40 relative group cursor-pointer">
+<img alt="Location view" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="stylized blueprint map of a modern office complex with minimalist architectural lines and soft teal highlights" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbKbTARTwdD5ocONxnnUhqit3aJrl4g-KgzfZz2acGAXkkXF26LoeyF97flKpz8dPQIR0h3LxdlMbsIULBANIg77BDvwot0_PCYoihXGkUcg52d9-f1drml1W9oC4BQ853aTaeNiCH-QjzxTHCGnYYuCgBSmWxYFnoM37S0M9hqcANlMdOvpxTPDo3-H7_gfChGWt4lQHZ40vX_-CcGQjqkA7962Smw3277GAacoqTNmw7c1ec-0vDHAqmAj9Rb64Xr8WbxsaquFI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6">
+<p class="text-white text-xs font-bold uppercase tracking-widest opacity-80">Local Server Node</p>
+<p class="text-white font-bold">HQ-Mainframe-01</p>
+</div>
+<div class="absolute top-4 right-4 bg-secondary text-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest flex items-center justify-around px-2 z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center w-16 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 text-outline" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold mt-1">Digitize</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 text-outline" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-bold mt-1">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 text-outline" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold mt-1">Settings</span>
+</a>
+</nav>
+</body></html>
