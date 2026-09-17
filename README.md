@@ -1,3 +1,9 @@
+> ### 🛡️ Author & Original Creator
+> **Atharv Kulshrestha** — [@Atharvkulshrestha08](https://github.com/Atharvkulshrestha08)  
+> *This repository and its codebase are the original work of Atharv Kulshrestha. All rights reserved.*
+
+---
+
 # AirBrush Studio - Product Requirements Document (PRD)
 
 ## 1. Project Overview
